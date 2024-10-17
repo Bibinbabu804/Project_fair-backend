@@ -18,6 +18,10 @@ require('./DB/connection')
 // import routes
 const router=require('./Routes/router')
 
+pfServer.use('/uploads',express.static('./uploads'))
+
+const applicationMiddleware= require('./MiddleWares/applicationMiddleware')
+
 
 
 
@@ -30,6 +34,7 @@ const router=require('./Routes/router')
 
 pfServer.use(cors());
 pfServer.use(express.json()); // pa   rse
+// pfServer.use(applicationMiddleware)
 pfServer.use(router)
 
 // define port
@@ -49,4 +54,4 @@ pfServer.get('/',(req,res)=>{
 })
 
 
-  
+   
